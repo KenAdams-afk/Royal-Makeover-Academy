@@ -1,163 +1,300 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Royal Makeover - A Luxury Salon</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Royal Makeover - A Luxury Salon</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
 
-   <link rel="stylesheet" href="styles.css">
-    <style>
-            nav {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            background-color: rgba(0a, 0, 0, 0.95);
-            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-            padding: 32px, 20px;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
-            transition: top 0.3s ease-in-out;
-        }
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-        nav .logo {
-            font-size: 38px;
-            font-weight: 600;
-            color: white;
-            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-            letter-spacing: 2.5px;
-        }
+    html {
+      scroll-behavior: smooth;
+    }
 
-        nav ul {
-            list-style: none;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 36px;
-            margin: 0;
-            padding: 0;
-        }
+    body {
+      font-family: "Poppins", sans-serif;
+      background-color: #fff;
+      color: #333;
+      line-height: 1.6;
+    }
 
-        nav ul li {
-            position: relative;
-        }
+    .top-nav {
+      background-color: #111;
+      padding: 15px 20px;
+      position: relative;
+      z-index: 1000;
+    }
 
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-size: 20px;
-            font-weight: 600;
-            transition: color 0.3s;
-            white-space: nowrap;
-        }
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
 
-        nav ul li a:hover {
-            color: #f39c12;
-        }
+    .logo a {
+      color: white;
+      font-size: 24px;
+      font-weight: bold;
+      text-decoration: none;
+    }
 
-        .dropdown-menu {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background-color: rgba(0, 0, 0, 0.95);
-            border-radius: 0 0 10px 10px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
-            list-style: none;
-            margin: 0;
-            padding: 12px 0;
-            min-width: 220px;
-            z-index: 999;
-        }
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 25px;
+      height: 18px;
+      cursor: pointer;
+    }
 
-        .dropdown-menu li {
-            padding: 12px 24px;
-        }
+    .menu-toggle span {
+      display: block;
+      height: 3px;
+      width: 100%;
+      background-color: white;
+      border-radius: 3px;
+      transition: all 0.3s ease;
+    }
 
-        .dropdown-menu li a {
-            display: block;
-            color: white;
-            text-decoration: none;
-            transition: background 0.3s, color 0.3s;
-        }
+    .menu-toggle.open span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
 
-        .dropdown-menu li a:hover {
-            background-color: #f39c12;
-            color: black;
-            animation: smooth;
-             transform: translateY(-5px);
-        }
+    .menu-toggle.open span:nth-child(2) {
+      opacity: 0;
+    }
 
-        .dropdown:hover .dropdown-menu {
-            display: block;
-        }
+    .menu-toggle.open span:nth-child(3) {
+      transform: rotate(-45deg) translate(6px, -6px);
+    }
 
-        a {
-            color: white;
-            text-decoration: none;
-        }
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      transition: all 0.3s ease;
+    }
 
-        a:hover {
-            text-decoration: none;
-        }
+    .nav-links li {
+      position: relative;
+    }
 
-        .service-item a p {
-            color: rgb(0, 0, 0);
-        }
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+      padding: 8px 5px;
+      transition: color 0.3s;
+    }
 
-        @media (max-width: 768px) {
-            nav ul {
-                flex-direction: column;
-                align-items: flex-end;
-            }
+    .nav-links a:hover {
+      color: #ffcc00;
+    }
 
-            nav ul li {
-                width: 100%;
-                text-align: right;
-            }
+    .submenu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: #222;
+      list-style: none;
+      padding: 10px 0;
+      min-width: 150px;
+      z-index: 10;
+    }
 
-            nav ul li a {
-                font-size: 18px;
-            }
-        }
-        
-    </style>
+    .submenu li a {
+      display: block;
+      padding: 10px 15px;
+      color: white;
+      white-space: nowrap;
+    }
+
+    .dropdown:hover .submenu {
+      display: block;
+    }
+
+    .hero {
+      background: url('https://images.pexels.com/photos/31840003/pexels-photo-31840003/free-photo-of-professional-barber-tools-on-wooden-table.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2') no-repeat center center/cover;
+      color: white;
+      text-align: center;
+      padding: 120px 20px;
+      position: relative;
+    }
+
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 60px 20px;
+      border-radius: 8px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      font-size: 36px;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      margin-bottom: 25px;
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: #ffcc00;
+      color: #111;
+      padding: 12px 24px;
+      font-weight: 600;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #e6b800;
+    }
+
+    .section {
+      padding: 50px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .section h2 {
+      text-align: center;
+      font-size: 28px;
+      margin-bottom: 20px;
+      color: #111;
+    }
+
+    .section p {
+      font-size: 16px;
+      text-align: center;
+    }
+
+    /* Mobile Styles */
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: flex;
+      }
+
+      .nav-links {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        background-color: #111;
+        margin-top: 10px;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .nav-links li {
+        width: 100%;
+        text-align: left;
+        padding-left: 20px;
+      }
+
+      .submenu {
+        position: static;
+        background-color: #222;
+      }
+
+      .dropdown > a::after {
+        content: ' ▼';
+        font-size: 12px;
+      }
+
+      .dropdown.open .submenu {
+        display: block;
+      }
+
+      .hero h1 {
+        font-size: 26px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .btn {
+        padding: 10px 20px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="logo">Royal Makeover & Academy</div>
-            <ul>
-                <li><a href="index.html#home">Home</a></li>
-                <li><a href="index.html#about">About Us</a></li>
-                <li class="dropdown">
-                    <a href="#services">Services</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="ladies.html">LADIES</a></li>
-                        <li><a href="gents.html">GENTS</a></li>
-                    </ul>
-                </li>
-                <li><a href="index.html#booking">Booking</a></li>
-                <li><a href="index.html#contact">Contact Us</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <section id="home" class="hero">
-        <div class="overlay">
-            <h1>Redefining Beauty & Elegance</h1>
-            <p>Experience the luxury of professional salon services.</p>
-            <a href="#booking" class="btn">Book an Appointment</a>
+  <header>
+    <nav class="top-nav">
+      <div class="nav-container">
+        <div class="logo">
+          <a href="/">Royal Makeover & Academy</a>
         </div>
-    </section>
+        <div class="menu-toggle" id="menu-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li class="dropdown">
+            <a href="#services" class="dropdown-toggle">Services</a>
+            <ul class="submenu">
+              <li><a href="/ladies.html">Ladies</a></li>
+              <li><a href="/gents.html">Gents</a></li>
+            </ul>
+          </li>
+          <li><a href="#appointment-form">Book</a></li>
+          <li><a href="#client-love-section">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
 
-    <section id="about" class="section">
-        <h2>About Us</h2>
-        <p>At A Royal Makeover Academy, we believe beauty is an art and confidence is its crown. Founded with a passion for transforming lives through style, we offer expert training in makeup artistry, hairstyling, personal grooming, and professional etiquette. Whether you’re stepping into the world of beauty or refining your skills, our academy provides a royal touch to your journey with personalized mentorship, hands-on experience, and industry insights. Join us and master the art of elegance—one brushstroke at a time.</p>
-    </section>
+  <section class="hero">
+    <div class="overlay">
+      <h1>Welcome to Royal Makeover</h1>
+      <p>Your Luxury Beauty Experience Starts Here</p>
+      <a href="#appointment-form" class="btn">Book Now</a>
+    </div>
+  </section>
+
+  <script>
+    const menuToggle = document.getElementById("menu-toggle");
+    const navLinks = document.getElementById("nav-links");
+
+    menuToggle.addEventListener("click", () => {
+      menuToggle.classList.toggle("open");
+      navLinks.classList.toggle("active");
+    });
+
+    // Toggle submenu on mobile
+    const dropdown = document.querySelector(".dropdown > a");
+    dropdown.addEventListener("click", (e) => {
+      if (window.innerWidth <= 768) {
+        e.preventDefault();
+        dropdown.parentElement.classList.toggle("open");
+      }
+    });
+  </script>
+</body>
+</html>
+
+
+
 
     <!--<section id="services" class="section">
         <h2>Our Services</h2>
@@ -167,36 +304,74 @@
     <section id="services" style="padding: 0; margin: 0;">
 
       <!-- Section Heading -->
-       
       <div style="text-align: center; padding: 50px 20px 20px;">
-        <h2 style="font-size: 42px; font-family: 'poppins'; text-transform: capitalize; color: #000; letter-spacing: 1px ; ;">
+        <h2 style="font-size: 42px; font-family: 'poppins'; text-transform: capitalize; color: #000; letter-spacing: 1px;">
           Our Services
         </h2>
       </div>
     
-      <div style="display: flex; flex-wrap: wrap; width: 100%; height: 60vh;">
-    
+      <div class="services-wrapper" style="display: flex; flex-wrap: wrap; width: 100%; height: 60vh;">
+        
         <!-- Gents Section -->
-        <a href="gents.html" style="flex: 1 1 50%; height: 100vh; overflow: hidden; position: relative; text-decoration: none;">
+        <a href="gents.html" class="service-box" style="flex: 1 1 50%; height: 100vh; overflow: hidden; position: relative; text-decoration: none;">
           <img src="https://d3r0z4awu7ba6n.cloudfront.net/images/looks/services/gents.jpg"
                alt="Gents Services"
                style="width: 100%; height: 50%; object-fit: cover; transition: transform 0.4s ease;">
-          <div style="position: relative; bottom: 310px; left: 370px; padding: 20px 30px; border-radius: 10px;">
+          <div class="service-label" style="position: relative; bottom: 280px; left: 310px; padding: 20px 30px; border-radius: 10px;">
             <h2 style="color: #000; font-size: 70px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 500; letter-spacing: 3px; text-transform: uppercase;">GENTS</h2>
           </div>
         </a>
     
         <!-- Ladies Section -->
-        <a href="ladies.html" style="flex: 1 1 50%; height: 100vh; overflow: hidden; position: relative; text-decoration: none;">
+        <a href="ladies.html" class="service-box" style="flex: 1 1 50%; height: 100vh; overflow: hidden; position: relative; text-decoration: none;">
           <img src="https://d3r0z4awu7ba6n.cloudfront.net/images/looks/services/ladies.jpg"
                alt="Ladies Services"
                style="width: 100%; height: 50%; object-fit: cover; transition: transform 0.4s ease;">
-          <div style="position: relative; bottom: 310px; left: 370px; padding: 20px 30px; border-radius: 10px;">
+          <div class="service-label" style="position: relative; bottom: 280px; left: 310px; padding: 20px 30px; border-radius: 10px;">
             <h2 style="color: #000; font-size: 70px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 500; letter-spacing: 3px; text-transform: uppercase;">LADIES</h2>
           </div>
         </a>
     
       </div>
+    
+      <!-- Responsive Styling -->
+      <style>
+        @media (max-width: 768px) {
+          .services-wrapper {
+            flex-direction: column;
+            height: auto !important;
+          }
+    
+          .service-box {
+            flex: 1 1 100%;
+            height: auto !important;
+          }
+    
+          .service-box img {
+            height: auto !important;
+          }
+    
+          .service-label {
+            position: absolute !important;
+            bottom: 90px !important;
+            left: 180px !important;
+            padding: 10px 20px !important;
+          }
+    
+          .service-label h2 {
+            font-size: 36px !important;
+            background: none !important;
+            padding: 0 !important;
+            border: none !important;
+            outline: none !important;
+          }
+    
+          h2 {
+            font-size: 28px !important;
+          }
+        }
+      </style>
+    
     </section>
     
 
@@ -239,7 +414,7 @@
       </div>
       <div class="form-group">
         <label for="appt-service">Choose Service</label>
-        <select id="appt-service" name="service" required disabled>
+        <select id="appt-service" name="service" required>
           <option value="">Select Service</option>
           <option value="Hair Styling">Hair Styling</option>
           <option value="Facials">Facials</option>
@@ -263,12 +438,11 @@
       <div style="text-align: center; margin-top: 30px; color: #000; font-family: 'Poppins', sans-serif; font-size: 16px;">
         <span style="font-size: 30px;">OR</span><br>
         <span style="color: #f39c12; font-weight: 600; font-size: 20px;">Call us @ </span>
-        <a href="tel:180021256657" style="color: #000; text-decoration: none; font-weight: 500; font-size: 20px;">1800 212 56657</a>
+        <a href="tel:1234567890" style="color: #000; text-decoration: none; font-weight: 500; font-size: 20px;">1234567890</a>
       </div>
       
   </div>
 </section>
-p>
 
     
       
@@ -281,11 +455,11 @@ p>
         .form-group input, .form-group select { width: 100%; padding: 12px 14px; border: 1px solid #ccc; border-radius: 4px; font-size: 16px; outline: none; transition: border-color 0.3s; }
         .form-group div select { width: auto; flex: 1; }
         .form-group input:focus, .form-group select:focus { border-color: #f39c12; }
-        .btn-appointment { display: inline-block; padding: 14px 32px; background: #f39c12; color: #fff; font-size: 18px; font-weight: 600; border: none; border-radius: 4px; cursor: pointer; transition: background 0.3s; }
+        .btn-appointment { display: inline-block; padding: 14px 32px; background: #f39c12; color: #fff; font-size: 18px; font-weight: 600; border: none; border-radius: 4px; cursor: pointer; transition: background 0.3s;}
         .btn-appointment:hover { background: #d6830b; }
       </style>
 
-<section class="client-love-section" style="background-color: #f9f9f9; padding: 30px 0; font-family: 'Arial', sans-serif; overflow: hidden;">
+<!--<section class="client-love-section" style="background-color: #f9f9f9; padding: 30px 0; font-family: 'Arial', sans-serif; overflow: hidden;">
   <div class="client-love-text" style="max-width: 1200px; margin: 20px; text-align: center; padding-bottom: 50px; box-sizing: border-box;">
     <h2 style="font-size: 2.5rem; font-weight: bold; color: #333; margin-bottom: 20px;">Client Love</h2>
     <p style="font-size: 1.2rem; line-height: 1.8; color: #555; font-style: italic; margin: 0 15px;">
@@ -305,7 +479,7 @@ p>
       referrerpolicy="no-referrer-when-downgrade">
     </iframe>
   </div>
-</section>
+</section>-->
 
 
       
@@ -330,6 +504,43 @@ p>
             <button type="submit" class="btn">Send Message</button>
         </form>
     </section>-->
+
+    <div class="contact-container">
+      <h2>📍 Contact Us</h2>
+      <p>We'd love to hear from you! Whether you have a question, need assistance, or want to book an appointment, our team is here to help.</p>
+      
+      <div class="contact-info">
+          <div class="info-box">
+              <h3>📞 Call Us</h3>
+              <p><strong>Phone:</strong> +91-11-12345678</p>
+              <p><strong>Mobile:</strong> +91 9896521323</p>
+          </div>
+          
+          <div class="info-box">
+              <h3>📧 Email Us</h3>
+              <p><strong>General Inquiries:</strong> <a href="mailto:info@lookssalon.in">info@royalmakeover.in</a></p>
+              <p><strong>Appointments:</strong> <a href="mailto:bookings@lookssalon.in">bookings@royalmakeover.in</a></p>
+              <p><strong>Feedback:</strong> <a href="mailto:feedback@lookssalon.in">feedback@royalmakeover.in</a></p>
+          </div>
+          
+          <div class="info-box">
+              <h3>📍 Visit Us</h3>
+              <p><strong>Royal Makeover & Academy</strong><br>FIRST FLOOR, MAPSKO CITY, SCO MC 14/15, Sector 27, Sonipat, Haryana 131001</p>
+          </div>
+          
+          <div class="info-box">
+              <h3>🕒 Salon Hours</h3>
+              <p><strong>Monday to Friday:</strong> 9:30 AM – 8:00 PM</p>
+              <p><strong>Saturday & Sunday:</strong> 9:30 AM – 7:00 PM</p>
+          </div>
+      </div>
+
+      <div class="map">
+          <h3>📍 Find Us on the Map</h3>
+          <!-- Embed Google Map -->
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d111699.60507310106!2d76.90174709726566!3d28.96921110000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390daf3766b2d77f%3A0xd8702d5c2255b8dd!2sRoyal%20Makeover%20%26%20Academy!5e0!3m2!1sen!2sin!4v1746304803878!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+  </div>
    
 
 
@@ -376,7 +587,7 @@ p>
                 servicesList.appendChild(div);
             });
 
-            document.getElementById("booking-form").addEventListener("submit", function (event) {
+            document.getElementById("appointment-form").addEventListener("submit", function (event) {
                 event.preventDefault();
                 alert("Appointment booked successfully!");
             });
