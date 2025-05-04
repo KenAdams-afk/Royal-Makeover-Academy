@@ -2,11 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Royal Makeover - A Luxury Salon</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gents Services - Royal Makeover & Academy</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
-
   <style>
     * {
       box-sizing: border-box;
@@ -27,7 +25,7 @@
 
     .top-nav {
       background-color: #111;
-      padding: 15px 20px;
+      padding: 20px 40px;
       position: relative;
       z-index: 1000;
     }
@@ -43,7 +41,7 @@
 
     .logo a {
       color: white;
-      font-size: 24px;
+      font-size: 28px;
       font-weight: bold;
       text-decoration: none;
     }
@@ -81,8 +79,8 @@
     .nav-links {
       list-style: none;
       display: flex;
-      gap: 20px;
-      transition: all 0.3s ease;
+      gap: 30px;
+      align-items: center;
     }
 
     .nav-links li {
@@ -92,8 +90,8 @@
     .nav-links a {
       color: white;
       text-decoration: none;
-      font-size: 16px;
-      padding: 8px 5px;
+      font-size: 18px;
+      padding: 10px 5px;
       transition: color 0.3s;
     }
 
@@ -109,7 +107,7 @@
       background: #222;
       list-style: none;
       padding: 10px 0;
-      min-width: 150px;
+      min-width: 160px;
       z-index: 10;
     }
 
@@ -124,66 +122,7 @@
       display: block;
     }
 
-    .hero {
-      background: url('https://images.pexels.com/photos/31840003/pexels-photo-31840003/free-photo-of-professional-barber-tools-on-wooden-table.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2') no-repeat center center/cover;
-      color: white;
-      text-align: center;
-      padding: 120px 20px;
-      position: relative;
-    }
-
-    .overlay {
-      background-color: rgba(0, 0, 0, 0.6);
-      padding: 60px 20px;
-      border-radius: 8px;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    .hero h1 {
-      font-size: 36px;
-      margin-bottom: 15px;
-    }
-
-    .hero p {
-      font-size: 18px;
-      margin-bottom: 25px;
-    }
-
-    .btn {
-      display: inline-block;
-      background-color: #ffcc00;
-      color: #111;
-      padding: 12px 24px;
-      font-weight: 600;
-      border-radius: 6px;
-      text-decoration: none;
-      transition: background 0.3s;
-    }
-
-    .btn:hover {
-      background-color: #e6b800;
-    }
-
-    .section {
-      padding: 50px 20px;
-      max-width: 1000px;
-      margin: auto;
-    }
-
-    .section h2 {
-      text-align: center;
-      font-size: 28px;
-      margin-bottom: 20px;
-      color: #111;
-    }
-
-    .section p {
-      font-size: 16px;
-      text-align: center;
-    }
-
-    /* Mobile Styles */
+    /* Responsive */
     @media (max-width: 768px) {
       .menu-toggle {
         display: flex;
@@ -203,13 +142,14 @@
 
       .nav-links li {
         width: 100%;
-        text-align: left;
         padding-left: 20px;
+        text-align: left;
       }
 
-      .submenu {
+      .dropdown .submenu {
         position: static;
         background-color: #222;
+        padding-left: 20px;
       }
 
       .dropdown > a::after {
@@ -220,22 +160,148 @@
       .dropdown.open .submenu {
         display: block;
       }
+    }
 
-      .hero h1 {
-        font-size: 26px;
-      }
+    /* Services Section */
+    .services-section {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
 
-      .hero p {
-        font-size: 16px;
-      }
+    .services-title {
+      text-align: center;
+      font-size: 28px;
+      font-weight: bold;
+      margin-bottom: 40px;
+      color: #222;
+    }
 
-      .btn {
-        padding: 10px 20px;
-      }
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .service-box {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s;
+    }
+
+    .service-box:hover {
+      transform: translateY(-5px);
+    }
+
+    .service-heading {
+      font-size: 20px;
+      color: #222;
+      margin-bottom: 15px;
+    }
+
+    .service-list {
+      list-style: disc;
+      padding-left: 20px;
+    }
+
+    .service-list li {
+      margin-bottom: 8px;
+    }
+
+    /* Appointment Form */
+    .appointment-section {
+      background-image: url('https://images.pexels.com/photos/544917/pexels-photo-544917.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      padding: 80px 20px;
+    }
+
+    .appointment-box {
+      background: rgba(255, 255, 255, 0.95);
+      max-width: 600px;
+      margin: auto;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    .appointment-box h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #000;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 500;
+      color: #555;
+    }
+
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      outline: none;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus {
+      border-color: #f39c12;
+    }
+
+    .btn-appointment {
+      width: 100%;
+      padding: 14px;
+      background: #f39c12;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .btn-appointment:hover {
+      background: #d6830b;
+    }
+
+    /* Ladies Call-to-Action */
+    .cta-section {
+      text-align: center;
+      padding: 50px 20px;
+      background-color: #f1f1f1;
+    }
+
+    .cta-section a {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 25px;
+      background-color: #111;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    .cta-section a:hover {
+      background-color: #333;
     }
   </style>
 </head>
 <body>
+
   <header>
     <nav class="top-nav">
       <div class="nav-container">
@@ -251,27 +317,19 @@
           <li><a href="/">Home</a></li>
           <li><a href="#about">About Us</a></li>
           <li class="dropdown">
-            <a href="#services" class="dropdown-toggle">Services</a>
+            <a href="#services">Services</a>
             <ul class="submenu">
               <li><a href="/ladies.html">Ladies</a></li>
               <li><a href="/gents.html">Gents</a></li>
             </ul>
           </li>
           <li><a href="#appointment-form">Book</a></li>
-          <li><a href="#client-love-section">Contact</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
       </div>
     </nav>
   </header>
-
-  <section class="hero">
-    <div class="overlay">
-      <h1>Welcome to Royal Makeover</h1>
-      <p>Your Luxury Beauty Experience Starts Here</p>
-      <a href="#appointment-form" class="btn">Book Now</a>
-    </div>
-  </section>
-
+  
   <script>
     const menuToggle = document.getElementById("menu-toggle");
     const navLinks = document.getElementById("nav-links");
@@ -293,89 +351,109 @@
 </body>
 </html>
 
-
-
-
-    <!--<section id="services" class="section">
-        <h2>Our Services</h2>
-        <div class="services-grid" id="services-list"></div>
-    </section>-->
-    
-    <section id="services" style="padding: 0; margin: 0;">
-
-      <!-- Section Heading -->
-      <div style="text-align: center; padding: 50px 20px 20px;">
-        <h2 style="font-size: 42px; font-family: 'poppins'; text-transform: capitalize; color: #000; letter-spacing: 1px;">
-          Our Services
-        </h2>
+  <section class="services-section">
+    <h2 class="services-title">Gents Services</h2>
+    <div class="service-grid">
+  
+      <div class="service-box">
+        <h3 class="service-heading">Haircut & Styling</h3>
+        <ul class="service-list">
+          <li>Normal Haircut</li>
+          <li>Iron Haircut</li>
+          <li>Hair Wash</li>
+          <li>Hair Style</li>
+          
+        </ul>
       </div>
-    
-      <div class="services-wrapper" style="display: flex; flex-wrap: wrap; width: 100%; height: 60vh;">
-        
-        <!-- Gents Section -->
-        <a href="gents.html" class="service-box" style="flex: 1 1 50%; height: 100vh; overflow: hidden; position: relative; text-decoration: none;">
-          <img src="https://d3r0z4awu7ba6n.cloudfront.net/images/looks/services/gents.jpg"
-               alt="Gents Services"
-               style="width: 100%; height: 50%; object-fit: cover; transition: transform 0.4s ease;">
-          <div class="service-label" style="position: relative; bottom: 280px; left: 310px; padding: 20px 30px; border-radius: 10px;">
-            <h2 style="color: #000; font-size: 70px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 500; letter-spacing: 3px; text-transform: uppercase;">GENTS</h2>
-          </div>
-        </a>
-    
-        <!-- Ladies Section -->
-        <a href="ladies.html" class="service-box" style="flex: 1 1 50%; height: 100vh; overflow: hidden; position: relative; text-decoration: none;">
-          <img src="https://d3r0z4awu7ba6n.cloudfront.net/images/looks/services/ladies.jpg"
-               alt="Ladies Services"
-               style="width: 100%; height: 50%; object-fit: cover; transition: transform 0.4s ease;">
-          <div class="service-label" style="position: relative; bottom: 280px; left: 310px; padding: 20px 30px; border-radius: 10px;">
-            <h2 style="color: #000; font-size: 70px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 500; letter-spacing: 3px; text-transform: uppercase;">LADIES</h2>
-          </div>
-        </a>
-    
+  
+      <div class="service-box">
+        <h3 class="service-heading">Hair Treatments</h3>
+        <ul class="service-list">
+          <li>Hair Spa – Matrix / Loreal</li>
+          <li>Anti-Dandruff Treatment</li>
+          <li>Keratin</li>
+          <li>Kerasmooth</li>
+          <li>Hair Botox Treatment</li>
+          <li>Smart Bond Treatment</li>
+        </ul>
       </div>
-    
-      <!-- Responsive Styling -->
-      <style>
-        @media (max-width: 768px) {
-          .services-wrapper {
-            flex-direction: column;
-            height: auto !important;
-          }
-    
-          .service-box {
-            flex: 1 1 100%;
-            height: auto !important;
-          }
-    
-          .service-box img {
-            height: auto !important;
-          }
-    
-          .service-label {
-            position: absolute !important;
-            bottom: 90px !important;
-            left: 180px !important;
-            padding: 10px 20px !important;
-          }
-    
-          .service-label h2 {
-            font-size: 36px !important;
-            background: none !important;
-            padding: 0 !important;
-            border: none !important;
-            outline: none !important;
-          }
-    
-          h2 {
-            font-size: 28px !important;
-          }
-        }
-      </style>
-    
-    </section>
-    
-
-    <section class="appointment-section" style="
+  
+      <div class="service-box">
+        <h3 class="service-heading">Hair Texture</h3>
+        <ul class="service-list">
+          <li>Smoothening</li>
+          <li>Rebonding</li>
+          <li>Straightening</li>
+        </ul>
+      </div>
+  
+      <div class="service-box">
+        <h3 class="service-heading">Hair Colour</h3>
+        <ul class="service-list">
+          <li>Loreal Majirel / Inoa</li>
+          <li>Matrix Colour</li>
+          <li>Highlighting</li>
+        </ul>
+      </div>
+  
+      <div class="service-box">
+        <h3 class="service-heading">Beard & Grooming</h3>
+        <ul class="service-list">
+          <li>Shave / Beard Styling</li>
+          <li>Nose Wax</li>
+          <li>Threading</li>
+          <li>Face Wax</li>
+        </ul>
+      </div>
+  
+      <div class="service-box">
+        <h3 class="service-heading">Massage & Polishing</h3>
+        <ul class="service-list">
+          <li>Head Massage</li>
+         <!-- <li>Foot Massage</li>
+          <li>Full Body Massage</li>
+          <li>Full Body Scrub</li>
+          <li>Full Body Polishing (VLCC / Chocolate)</li>-->
+        </ul>
+      </div>
+  
+      <div class="service-box">
+        <h3 class="service-heading">Facials</h3>
+        <ul class="service-list">
+          <li>Basic Fruit</li>
+          <li>Lotus Whitening</li>
+          <li>Aroma Skin Glow</li>
+          <li>Aroma Pearl</li>
+          <li>Shahnaz Gold</li>
+          <li>VLCC Tan</li>
+          <li>Wine / Oxy</li>
+          <li>O3+ Whitening</li>
+          <li>Hydra Facial</li>
+          <li>Ozone Anti-Aging</li>
+        </ul>
+      </div>
+  
+      <div class="service-box">
+        <h3 class="service-heading">Bleach & D-Tan</h3>
+        <ul class="service-list">
+          <li>Oxylife / Gold / Herbal / Fruit</li>
+          <li>O3+ Bleach</li>
+          <li>D-Tan (Sara)</li>
+          <li>Neck Bleach</li>
+        </ul>
+      </div>
+  
+      <div class="service-box">
+        <h3 class="service-heading">Manicure & Pedicure</h3>
+        <ul class="service-list">
+          <li>Normal / Chocolate / VLCC / Paraffin</li>
+          <li>D-Tan Hand & Foot</li>
+        </ul>
+      </div>
+  
+    </div>
+  </section>
+   <section class="appointment-section" style="
   background-image: url('https://images.pexels.com/photos/544917/pexels-photo-544917.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2') ;
   background-size: cover;
   background-position: center;
@@ -438,7 +516,7 @@
       <div style="text-align: center; margin-top: 30px; color: #000; font-family: 'Poppins', sans-serif; font-size: 16px;">
         <span style="font-size: 30px;">OR</span><br>
         <span style="color: #f39c12; font-weight: 600; font-size: 20px;">Call us @ </span>
-        <a href="tel:1234567890" style="color: #000; text-decoration: none; font-weight: 500; font-size: 20px;">1234567890</a>
+        <a href="tel:180021256657" style="color: #000; text-decoration: none; font-weight: 500; font-size: 20px;">1234567890</a>
       </div>
       
   </div>
@@ -455,173 +533,28 @@
         .form-group input, .form-group select { width: 100%; padding: 12px 14px; border: 1px solid #ccc; border-radius: 4px; font-size: 16px; outline: none; transition: border-color 0.3s; }
         .form-group div select { width: auto; flex: 1; }
         .form-group input:focus, .form-group select:focus { border-color: #f39c12; }
-        .btn-appointment { display: inline-block; padding: 14px 32px; background: #f39c12; color: #fff; font-size: 18px; font-weight: 600; border: none; border-radius: 4px; cursor: pointer; transition: background 0.3s;}
+        .btn-appointment { display: inline-block; padding: 14px 32px; background: #f39c12; color: #fff; font-size: 18px; font-weight: 600; border: none; border-radius: 4px; cursor: pointer; transition: background 0.3s; }
         .btn-appointment:hover { background: #d6830b; }
       </style>
 
-<!--<section class="client-love-section" style="background-color: #f9f9f9; padding: 30px 0; font-family: 'Arial', sans-serif; overflow: hidden;">
-  <div class="client-love-text" style="max-width: 1200px; margin: 20px; text-align: center; padding-bottom: 50px; box-sizing: border-box;">
-    <h2 style="font-size: 2.5rem; font-weight: bold; color: #333; margin-bottom: 20px;">Client Love</h2>
-    <p style="font-size: 1.2rem; line-height: 1.8; color: #555; font-style: italic; margin: 0 15px;">
-      "Absolutely loved my haircut! Super professional staff and such a welcoming vibe. Will definitely return!"
-      <br><br>
-      – Aanya S.
+
+  
+  
+  <section style="text-align: center; padding: 50px 20px; background-color: #f1f1f1; margin-top: 50px;">
+    <h2 style="font-size: 24px; color: #222; margin-bottom: 20px;">Interested in Ladies' Services?</h2>
+    <p style="font-size: 16px; margin-bottom: 30px; color: #555;">
+      Explore our wide range of beauty and grooming services tailored for women.
     </p>
-  </div>
-  <div class="map" style="max-width: 1200px; margin:auto;">
-    <iframe 
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3490.6126593613185!2d77.05160747530213!3d28.969211075482548!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390daf3766b2d77f%3A0xd8702d5c2255b8dd!2sRoyal%20Makeover%20%26%20Academy!5e0!3m2!1sen!2sin!4v1745022946516!5m2!1sen!2sin" 
-      width="95%" 
-      height="600" 
-      style="border-radius: 15px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); max-width: 95%;"
-      allowfullscreen="" 
-      loading="lazy" 
-      referrerpolicy="no-referrer-when-downgrade">
-    </iframe>
-  </div>
-</section>-->
-
-
-      
-
-    <!--<section id="booking" class="section">
-        <h2>Book an Appointment</h2>
-        <form id="booking-form">
-            <input type="text" id="name" placeholder="Your Name" required>
-            <input type="mobile-number" id="mobile-number" placeholder="Mobile Number" required>
-            <input type="dropdown" placeholder="Services Needed" required>
-            <input type="datetime-local" id="appointment-time" required>
-            <button type="submit" class="btn">Confirm Booking</button>
-        </form>
-    </section>-->
-
-    <!--<section id="contact" class="section">
-        <h2>Contact Us</h2>
-        <form id="contact-form">
-            <input type="text" id="contact-name" placeholder="Your Name" required>
-            <input type="email" id="contact-email" placeholder="Your Email" required>
-            <textarea id="message" placeholder="Your Message" required></textarea>
-            <button type="submit" class="btn">Send Message</button>
-        </form>
-    </section>-->
-
-    <div class="contact-container">
-      <h2>📍 Contact Us</h2>
-      <p>We'd love to hear from you! Whether you have a question, need assistance, or want to book an appointment, our team is here to help.</p>
-      
-      <div class="contact-info">
-          <div class="info-box">
-              <h3>📞 Call Us</h3>
-              <p><strong>Phone:</strong> +91-11-12345678</p>
-              <p><strong>Mobile:</strong> +91 9896521323</p>
-          </div>
-          
-          <div class="info-box">
-              <h3>📧 Email Us</h3>
-              <p><strong>General Inquiries:</strong> <a href="mailto:info@lookssalon.in">info@royalmakeover.in</a></p>
-              <p><strong>Appointments:</strong> <a href="mailto:bookings@lookssalon.in">bookings@royalmakeover.in</a></p>
-              <p><strong>Feedback:</strong> <a href="mailto:feedback@lookssalon.in">feedback@royalmakeover.in</a></p>
-          </div>
-          
-          <div class="info-box">
-              <h3>📍 Visit Us</h3>
-              <p><strong>Royal Makeover & Academy</strong><br>FIRST FLOOR, MAPSKO CITY, SCO MC 14/15, Sector 27, Sonipat, Haryana 131001</p>
-          </div>
-          
-          <div class="info-box">
-              <h3>🕒 Salon Hours</h3>
-              <p><strong>Monday to Friday:</strong> 9:30 AM – 8:00 PM</p>
-              <p><strong>Saturday & Sunday:</strong> 9:30 AM – 7:00 PM</p>
-          </div>
-      </div>
-
-      <div class="map">
-          <h3>📍 Find Us on the Map</h3>
-          <!-- Embed Google Map -->
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d111699.60507310106!2d76.90174709726566!3d28.96921110000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390daf3766b2d77f%3A0xd8702d5c2255b8dd!2sRoyal%20Makeover%20%26%20Academy!5e0!3m2!1sen!2sin!4v1746304803878!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-      </div>
-  </div>
-   
-
-
-
-    
-      
-
-    <footer>
-        <p>&copy; Royal Makeover and Academy. All Rights Reserved.</p>
-    </footer>
-
-    <script>
-        let lastScrollTop = 0;
-        const navbar = document.getElementById("navbar");
-    
-        window.addEventListener("scroll", function () {
-          const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-    
-          if (currentScroll > lastScrollTop) {
-            navbar.style.top = "-100px"; // Hide
-          } else {
-            navbar.style.top = "0"; // Show
-          }
-    
-          lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
-        });
-      </script>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const servicesList = document.getElementById("services-list");
-            const services = [
-                { name: "Hair Styling", image: "hair.jpg", link: "services/hair.html" },
-                { name: "Facials", image: "facial.jpg", link: "services/facials.html" },
-                { name: "Waxing", image: "manicure.jpg", link: "services/waxing.html" },
-                { name: "Manicures & Pedicures", image: "pedicure.jpg", link: "services/pedicure.html" },
-                { name: "Makeup", image: "makeup.jpg", link: "services/makeup.html" },
-                { name: "Massage", image: "massage.jpg", link: "services/massage.html" }
-            ];
-            services.forEach(service => {
-                const div = document.createElement("div");
-                div.classList.add("service-item");
-                div.innerHTML = `<a href="${service.link}"><img src="${service.image}" alt="${service.name}"><p>${service.name}</p></a>`;
-                servicesList.appendChild(div);
-            });
-
-            document.getElementById("appointment-form").addEventListener("submit", function (event) {
-                event.preventDefault();
-                alert("Appointment booked successfully!");
-            });
-
-            document.getElementById("contact-form").addEventListener("submit", function (event) {
-                event.preventDefault();
-                alert("Message sent successfully!");
-            });
-        });
-    </script>
-
-<script>
-    // enable service select once gender chosen
-    document.getElementById('appt-gender').addEventListener('change', function() {
-      document.getElementById('appt-service').disabled = !this.value;
-    });
+    <a href="/ladies.html" style="
+      display: inline-block;
+      padding: 12px 25px;
+      background-color: #111;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: background 0.3s ease;">
+      Explore Ladies Section
+    </a>
+  </section>
   
-    // optional: assemble time on submit
-    document.getElementById('appointment-form').addEventListener('submit', function(e) {
-      const h = document.getElementById('appt-hour').value;
-      const m = document.getElementById('appt-minute').value;
-      const mer = document.getElementById('appt-meridiem').value;
-      if (!h || !m || !mer) {
-        e.preventDefault();
-        alert('Please select a valid time.');
-      } else {
-        // you can combine into hidden field if needed
-        const time = `${h.padStart(2,'0')}:${m} ${mer}`;
-        console.log('Booking time:', time);
-      }
-    });
-  </script>
-
-
-  
-</body>
-</html>
